@@ -1,0 +1,13 @@
+<h1>Goals</h1>
+
+<table>
+  <% @goals.each do |goal| %>
+      <tr>
+        <td>
+          Within <%= Goal.days[goal.days] %> I will <%= goal.text %> which will be <%= Goal.values[goal.value] %>  and <%= Goal.efforts[goal.effort] %>. <%= link_to 'Show', goal_path(goal) %> <%= link_to 'Edit', edit_goal_path(goal) %> <%= link_to 'Destroy', goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Create', new_goal_path %>
