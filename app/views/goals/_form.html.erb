@@ -23,12 +23,14 @@
 
     <p>
       <%= f.label :value %><br>
-      <%= f.select(:value, Goal.values.invert) #TODO Select medium option by default.%>
+      <!-- #TODO Select medium option by default. -->
+      <%= f.select(:value, Goal.values.invert) %>
     </p>
 
     <p>
       <%= f.label :effort %><br>
-      <%= f.select(:effort, Goal.efforts.invert) #TODO Select medium option by default.%>
+      <!-- #TODO Select medium option by default. -->
+      <%= f.select(:effort, Goal.efforts.invert) %>
     </p>
 
     <p>
