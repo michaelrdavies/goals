@@ -1,5 +1,4 @@
 class GoalsController < ApplicationController
-
   def new
     @goal = Goal.new
   end
@@ -8,7 +7,8 @@ class GoalsController < ApplicationController
     @goal = Goal.new(goal_params)
     #TOOO Need to add date values.
     if @goal.save
-      redirect_to @goal
+      #redirect_to @goal
+      redirect_to goals_path
     else
       render 'new'
     end
@@ -20,6 +20,18 @@ class GoalsController < ApplicationController
 
   def index
     @goals = Goal.all
+    case params[:order]
+    when "", "created"
+      @goals = @goals.sort_by(&:created_at).reverse
+    when "days"
+      @goals = @goals.sort_by(&:days)
+    when "value"
+      @goals = @goals.sort_by(&:value).reverse
+    when "effort"
+      @goals = @goals.sort_by(&:effort)
+    else
+    #TODO Throw an error.
+    end
   end
 
   def edit
@@ -42,7 +54,8 @@ class GoalsController < ApplicationController
   end
 
   private
-    def goal_params
-      params.require(:goal).permit(:days, :text, :value, :effort)
-    end
+
+  def goal_params
+    params.require(:goal).permit(:days, :text, :value, :effort)
+  end
 end

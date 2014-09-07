@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Goals</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <!--
-  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
-  <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  -->
-  <%= csrf_meta_tags %>
-</head>
-<body>
-	<ul>
-		<li>
-			<a href="<%= goals_path %>">Index</a>
-		</li>
-		<li>
-			<a href="<%= new_goal_path %>">Create</a>
-		</li>
-	</ul>
-<!--
-<div data-role="page">
-  <div data-role="header" data-position="fixed">
-	<a href="<%= goals_path %>" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home ui-btn-icon-notext"></a>
-	<h1>Reacher</h1>
-    <a href="<%= new_goal_path %>" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-plus ui-btn-icon-notext"></a>
-  </div>
-  <div data-role="main" class="ui-content">
--->
-<%= yield %>
-<!--
-  </div>
-  <div data-role="footer" data-position="fixed">
-    <h1>Copyright <%= Time.now.year %> Michael Davies</h1>
-  </div>
-</div>
--->
-</body>
+	<head>
+		<title>Goals</title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<!--
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+		<script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		-->
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="<%= goals_path %>">Index</a>
+			</li>
+			<li>
+				<a href="<%= new_goal_path %>">Create</a>
+			</li>
+		</ul>
+		<!--
+		<div data-role="page">
+		<div data-role="header" data-position="fixed">
+		<a href="<%= goals_path %>" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-home ui-btn-icon-notext"></a>
+		<h1>Reacher</h1>
+		<a href="<%= new_goal_path %>" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-plus ui-btn-icon-notext"></a>
+		</div>
+		<div data-role="main" class="ui-content">
+		-->
+		<%= yield %>
+		<!--
+		</div>
+		<div data-role="footer" data-position="fixed">
+		<h1>Copyright <%= Time.now.year %> Michael Davies</h1>
+		</div>
+		</div>
+		-->
+	</body>
 </html>

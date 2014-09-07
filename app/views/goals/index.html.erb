@@ -1,31 +1,44 @@
 <h1>All Goals</h1>
-
 <!--
+<%= debug @goals %>
 <div class="ui-field-contain">
-    <label for="select-custom-2"></label>
-    <select name="select-custom-2" id="select-custom-2" data-native-menu="false" data-mini="true">
-        <option value="1">Soon</option>
-        <option value="2">Far</option>
-        <option value="3">High Value</option>
-        <option value="4">Low Value</option>
-        <option value="5">High Effot</option>
-        <option value="6">Low Effot</option>
-    </select>
+<label for="select-custom-2"></label>
+<select name="select-custom-2" id="select-custom-2" data-native-menu="false" data-mini="true">
+<option value="1">Soon</option>
+<option value="2">Far</option>
+<option value="3">High Value</option>
+<option value="4">Low Value</option>
+<option value="5">High Effot</option>
+<option value="6">Low Effot</option>
+</select>
 </div>
 -->
 
-<!--       
+<!--
 <ul data-role="listview" data-inset="true">
 -->
 <ul>
-  <% @goals.each do |goal| %>
-        <li>
-        	<a href="<%= goal_path(goal) %>"><%= goal.text %></a>
-        	 - <%= Goal.days[goal.days] %> <%= Goal.values[goal.value] %> <%= Goal.efforts[goal.effort] %>
-        </li>
-  <% end %>
+	<li>
+		<a href="<%= goals_path %>/sorted/days">Days</a>
+	</li>
+	<li>
+		<a href="<%= goals_path %>/sorted/value">Value</a>
+	</li>
+	<li>
+		<a href="<%= goals_path %>/sorted/effort">Effort</a>
+	</li>
+	<li>
+		<a href="<%= goals_path %>/sorted/created">Created</a>
+	</li>
 </ul>
-  
+<ul>
+	<% @goals.each do |goal| %>
+	<li>
+		<a href="<%= goal_path(goal) %>"><%= goal.text %></a> - <%= Goal.days[goal.days] %> <%= Goal.values[goal.value] %> <%= Goal.efforts[goal.effort] %>
+	</li>
+	<% end %>
+</ul>
+
 <!--
 </ul>
 -->
