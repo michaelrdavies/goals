@@ -1,6 +1,13 @@
 <!-- #TODO make a template for this sentence -->
 <p>
-  Within <%= Goal.days[@goal.days] %> I will <%= @goal.text %> which will be <%= Goal.values[@goal.value] %>  and <%= Goal.efforts[@goal.effort] %>. <%= link_to 'Edit', edit_goal_path(@goal) %>
+  Within <%= Goal.days[@goal.days] %> I will <%= @goal.text %> which will be <%= Goal.values[@goal.value] %>  and <%= Goal.efforts[@goal.effort] %>.
 </p>
 
-<%= link_to 'Index', goals_path %>
+<ul>
+	<li>
+		<%= link_to 'Edit', edit_goal_path(@goal) %>
+	</li>
+	<li>
+		<%= link_to 'Delete', goal_path(@goal), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</li>
+</ul>

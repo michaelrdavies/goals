@@ -1,13 +1,31 @@
-<h1>Goals</h1>
+<h1>All Goals</h1>
 
-<table>
+<!--
+<div class="ui-field-contain">
+    <label for="select-custom-2"></label>
+    <select name="select-custom-2" id="select-custom-2" data-native-menu="false" data-mini="true">
+        <option value="1">Soon</option>
+        <option value="2">Far</option>
+        <option value="3">High Value</option>
+        <option value="4">Low Value</option>
+        <option value="5">High Effot</option>
+        <option value="6">Low Effot</option>
+    </select>
+</div>
+-->
+
+<!--       
+<ul data-role="listview" data-inset="true">
+-->
+<ul>
   <% @goals.each do |goal| %>
-      <tr>
-        <td>
-          Within <%= Goal.days[goal.days] %> I will <%= goal.text %> which will be <%= Goal.values[goal.value] %>  and <%= Goal.efforts[goal.effort] %>. <%= link_to 'Show', goal_path(goal) %> <%= link_to 'Edit', edit_goal_path(goal) %> <%= link_to 'Destroy', goal_path(goal), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
+        <li>
+        	<a href="<%= goal_path(goal) %>"><%= goal.text %></a>
+        	 - <%= Goal.days[goal.days] %> <%= Goal.values[goal.value] %> <%= Goal.efforts[goal.effort] %>
+        </li>
   <% end %>
-</table>
-
-<%= link_to 'Create', new_goal_path %>
+</ul>
+  
+<!--
+</ul>
+-->
