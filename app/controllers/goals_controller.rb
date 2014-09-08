@@ -21,7 +21,7 @@ class GoalsController < ApplicationController
   def index
     @goals = Goal.all
     case params[:order]
-    when "", "created"
+    when nil, "created"
       @goals = @goals.sort_by(&:created_at).reverse
     when "days"
       @goals = @goals.sort_by(&:days)
@@ -29,6 +29,8 @@ class GoalsController < ApplicationController
       @goals = @goals.sort_by(&:value).reverse
     when "effort"
       @goals = @goals.sort_by(&:effort)
+    when "magic"
+      @goals = @goals.sort {|a,b| [a.days, b.value, a.effort] <=> [b.days, a.value, b.effort]}
     else
     #TODO Throw an error.
     end

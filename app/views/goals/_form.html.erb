@@ -12,24 +12,24 @@
     <% end %>
 
     <p>
-      <%= f.label :days %><br>
-      <%= f.select(:days, Goal.days.invert) %>
-    </p>
-
-    <p>
-      <%= f.label :text %><br>
+      <%= f.label "Goal" %><br>
       <%= f.text_field :text %>
     </p>
 
     <p>
+      <%= f.label "Timeframe" %><br>
+      <%= f.select(:days, Goal.days.invert) %>
+    </p>
+
+    <p>
       <%= f.label :value %><br>
-      <!-- #TODO Select medium option by default. -->
+      <!-- #TODO Select middle option by default. -->
       <%= f.select(:value, Goal.values.invert) %>
     </p>
 
     <p>
       <%= f.label :effort %><br>
-      <!-- #TODO Select medium option by default. -->
+      <!-- #TODO Select middle option by default. -->
       <%= f.select(:effort, Goal.efforts.invert) %>
     </p>
 

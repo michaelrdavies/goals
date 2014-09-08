@@ -19,7 +19,7 @@
 -->
 <ul>
 	<li>
-		<a href="<%= goals_path %>/sorted/days">Days</a>
+		<a href="<%= goals_path %>/sorted/days">Timeframe</a>
 	</li>
 	<li>
 		<a href="<%= goals_path %>/sorted/value">Value</a>
@@ -30,11 +30,17 @@
 	<li>
 		<a href="<%= goals_path %>/sorted/created">Created</a>
 	</li>
+	<li>
+		<a href="<%= goals_path %>/sorted/magic">Magic</a>
+	</li>
 </ul>
 <ul>
 	<% @goals.each do |goal| %>
 	<li>
+		<a href="<%= goal_path(goal) %>"><%= goal.text %></a> - <%= goal.days %>d <%= goal.value %>v <%= goal.effort %>e
+		<!--
 		<a href="<%= goal_path(goal) %>"><%= goal.text %></a> - <%= Goal.days[goal.days] %> <%= Goal.values[goal.value] %> <%= Goal.efforts[goal.effort] %>
+       -->
 	</li>
 	<% end %>
 </ul>
