@@ -1,50 +1,39 @@
 <h1>All Goals</h1>
-<!--
-<%= debug @goals %>
-<div class="ui-field-contain">
-<label for="select-custom-2"></label>
-<select name="select-custom-2" id="select-custom-2" data-native-menu="false" data-mini="true">
-<option value="1">Soon</option>
-<option value="2">Far</option>
-<option value="3">High Value</option>
-<option value="4">Low Value</option>
-<option value="5">High Effot</option>
-<option value="6">Low Effot</option>
-</select>
-</div>
--->
 
-<!--
-<ul data-role="listview" data-inset="true">
--->
 <ul>
 	<li>
-		<a href="<%= goals_path %>/sorted/days">Timeframe</a>
+		<%= link_to 'Timeframe', goals_path(order: "days", status: params[:status]) %>
 	</li>
 	<li>
-		<a href="<%= goals_path %>/sorted/value">Value</a>
+		<%= link_to 'Value', goals_path(order: "value", status: params[:status]) %>
 	</li>
 	<li>
-		<a href="<%= goals_path %>/sorted/effort">Effort</a>
+		<%= link_to 'Effot', goals_path(order: "effort", status: params[:status]) %>
 	</li>
 	<li>
-		<a href="<%= goals_path %>/sorted/created">Created</a>
+		<%= link_to 'Created', goals_path(order: "created", status: params[:status]) %>
 	</li>
 	<li>
-		<a href="<%= goals_path %>/sorted/magic">Magic</a>
+		<%= link_to 'Magic', goals_path(order: "magic", status: params[:status]) %>
 	</li>
 </ul>
+
+<ul>
+	<li>
+		<%= link_to 'Show Complete', goals_path(order: params[:order], status: "complete") %>
+	</li>
+	<li>
+		<%= link_to 'Show Incomplete', goals_path(order: params[:order], status: "incomplete") %>
+	</li>
+	<li>
+		<%= link_to 'Show All', goals_path(order: params[:order], status: "all") %>
+	</li>
+</ul>
+
 <ul>
 	<% @goals.each do |goal| %>
 	<li>
-		<a href="<%= goal_path(goal) %>"><%= goal.text %></a> - <%= goal.days %>d <%= goal.value %>v <%= goal.effort %>e
-		<!--
-		<a href="<%= goal_path(goal) %>"><%= goal.text %></a> - <%= Goal.days[goal.days] %> <%= Goal.values[goal.value] %> <%= Goal.efforts[goal.effort] %>
-       -->
+		<%= link_to goal.text + ' - ' + days_left(goal.created_at, goal.days).to_s + 'd ' + goal.value.to_s + 'v ' + goal.effort.to_s + 'e', goal_path(goal) %>
 	</li>
 	<% end %>
 </ul>
-
-<!--
-</ul>
--->

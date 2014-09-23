@@ -1,39 +1,45 @@
 <%= form_for @goal do |f| %>
-    <% if @goal.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@goal.errors.count, "error") %> prohibited
-            this article from being saved:</h2>
-          <ul>
-            <% @goal.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+<% if @goal.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@goal.errors.count, "error") %> prohibited
+	this article from being saved:</h2>
+	<ul>
+		<% @goal.errors.full_messages.each do |msg| %>
+		<li>
+			<%= msg %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
 
-    <p>
-      <%= f.label "Goal" %><br>
-      <%= f.text_field :text %>
-    </p>
+<p>
+	<%= f.label "Goal" %>
+	<br>
+	<%= f.text_field :text %>
+</p>
 
-    <p>
-      <%= f.label "Timeframe" %><br>
-      <%= f.select(:days, Goal.days.invert) %>
-    </p>
+<p>
+	<%= f.label "Timeframe" %>
+	<br>
+	<%= f.select(:days, Goal.days.invert) %>
+</p>
 
-    <p>
-      <%= f.label :value %><br>
-      <!-- #TODO Select middle option by default. -->
-      <%= f.select(:value, Goal.values.invert) %>
-    </p>
+<p>
+	<%= f.label :value %>
+	<br>
+	<!-- #TODO Select middle option by default. -->
+	<%= f.select(:value, Goal.values.invert) %>
+</p>
 
-    <p>
-      <%= f.label :effort %><br>
-      <!-- #TODO Select middle option by default. -->
-      <%= f.select(:effort, Goal.efforts.invert) %>
-    </p>
+<p>
+	<%= f.label :effort %>
+	<br>
+	<!-- #TODO Select middle option by default. -->
+	<%= f.select(:effort, Goal.efforts.invert) %>
+</p>
 
-    <p>
-      <%= f.submit %>
-    </p>
+<p>
+	<%= f.submit %>
+</p>
 <% end %>

@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140829041741) do
+ActiveRecord::Schema.define(version: 20140922033555) do
 
   create_table "goals", force: true do |t|
     t.string   "text"
     t.integer  "value"
     t.integer  "effort"
     t.integer  "days"
-    t.date     "begin_date"
-    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "end_at"
+    t.boolean  "complete",     default: false
+    t.datetime "completed_at"
   end
 
 end

@@ -1,6 +1,6 @@
 <!-- #TODO make a template for this sentence -->
 <p>
-  Within <%= Goal.days[@goal.days] %> I will <%= @goal.text %> which will be <%= Goal.values[@goal.value] %>  and <%= Goal.efforts[@goal.effort] %>.
+	Within <%= Goal.days[@goal.days] %> I will <%= @goal.text %> which will be <%= Goal.values[@goal.value] %>  and <%= Goal.efforts[@goal.effort] %>.
 </p>
 
 <ul>
@@ -9,5 +9,12 @@
 	</li>
 	<li>
 		<%= link_to 'Delete', goal_path(@goal), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</li>
+	<li>
+		<% if @goal.complete %>
+		<%= link_to 'Incomplete', goal_path(@goal, complete: "false"), method: :patch %>
+		<% else %>
+		<%= link_to 'Complete', goal_path(@goal, complete: "true"), method: :patch %>
+		<% end %>
 	</li>
 </ul>
